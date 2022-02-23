@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class PurchaseBillProduct extends Model
+{
+	public function bill(){
+		return $this->belongsTo('App\Models\PurchaseBill', 'bill_id')->with('supplier')->with('user');
+	}
+
+	public function product()
+	{
+   		return $this->belongsTo('App\Models\Product', 'product_id');
+	}
+
+}
